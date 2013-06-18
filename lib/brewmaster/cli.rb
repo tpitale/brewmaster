@@ -5,9 +5,11 @@ module Brewmaster
     def initialize(args)
       options = {}
 
+      @name = 'brewmaster'
+
       OptionParser.new do |parser|
         parser.banner = [
-          "Usage: #{@name} [-c config_file]\n",
+          "Usage: #{@name} [--bootstrap] [-c config_file]\n",
           "       #{@name} --help\n"
         ].compact.join
 
