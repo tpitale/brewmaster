@@ -7,7 +7,7 @@ module Brewmaster
     end
 
     def run
-      if configuration.boostrap?
+      if configuration.bootstrap?
         Brewmaster.bootstrap!
       else
         Brewmaster.setup_load_paths

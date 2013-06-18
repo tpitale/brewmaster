@@ -36,13 +36,14 @@ module Brewmaster
   def self.setup_homebrew_load_path
     begin
       # build homebrew into loadpath
-      HOMEBREW_ROOT = File.join(`brew --prefix`.strip, 'Library', 'Homebrew')
-
-      $: << HOMEBREW_ROOT
+      $: << File.join(`brew --prefix`.strip, 'Library', 'Homebrew')
 
       require 'global'
       require 'formula'
       require 'keg'
+      require 'cmd/install'
+      require 'cmd/outdated'
+      require 'cmd/upgrade'
     rescue
       puts 'You seem to be missing homebrew'
     end
@@ -53,11 +54,12 @@ module Brewmaster
       # build brew-cask into loadpath
       cask_bin = `which brew-cask.rb`.strip
       cask_bin_path = `dirname #{cask_bin}`.strip
-      cask_link = `readlink #{cask_bin}`.strip
+      cask_bin_link = `readlink #{cask_bin}`.strip
+      cask_real_path = Pathname.new(File.join(cask_bin_path,cask_bin_link)).realpath
 
-      HOMEBREW_CASK_ROOT = File.expand_path('../../rubylib', Pathname.new(File.join(cask_bin_path,cask_link)).realpath)
+      $: << File.expand_path('../../rubylib', cask_real_path)
 
-      $: << HOMEBREW_CASK_ROOT
+      require 'cask'
     rescue => e
       puts 'You seem to be missing brew-cask'
     end

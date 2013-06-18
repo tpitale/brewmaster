@@ -1,7 +1,3 @@
-require 'cmd/install'
-require 'cmd/outdated'
-require 'cmd/upgrade'
-
 module Brewmaster
   class BrewCollection
     def initialize(names)

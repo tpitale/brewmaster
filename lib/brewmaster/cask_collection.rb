@@ -1,5 +1,3 @@
-require 'cask'
-
 module Brewmaster
   class CaskCollection
     def initialize(names)
