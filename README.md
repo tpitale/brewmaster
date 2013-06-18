@@ -1,6 +1,6 @@
 # Brewmaster
 
-Given a configuration will install homebrew/brew-cask/ruby-build/chruby and use them to install brews, casks, and rubies.
+Given a configuration, it will install homebrew/brew-cask/ruby-build/chruby and use them to install brews, casks, and rubies.
 
 ## Installation
 

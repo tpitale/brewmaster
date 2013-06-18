@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Brewmaster::VERSION
   gem.authors       = ["Tony Pitale"]
   gem.email         = ["tpitale@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Configuration driven installation and updating of homebrew/brew-casks/rubies.}
+  gem.summary       = %q{Given a configuration, it will install homebrew/brew-cask/ruby-build/chruby and use them to install brews, casks, and rubies.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
