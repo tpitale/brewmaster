@@ -25,7 +25,7 @@ module Brewmaster
   end
 
   def self.install_ruby_tools
-    BrewCollection.new(['chruby', 'ruby-build']).install
+    BrewCollection.new(['chruby', 'ruby-build']).install_missing
   end
 
   def self.setup_load_paths

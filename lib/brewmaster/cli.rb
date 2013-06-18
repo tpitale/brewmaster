@@ -15,6 +15,10 @@ module Brewmaster
           options[:config_path] = path
         end
 
+        parser.on('--bootstrap') do
+          options[:bootstrap] = true
+        end
+
         # parser.on("-l", "--log FILE") do |path|
         #   options[:log_path] = path
         # end
