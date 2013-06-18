@@ -1,7 +1,12 @@
 module Brewmaster
   class Configuration
     def initialize(options={})
+      @bootstrap = options.fetch(:bootstrap, false)
       @config_file = YAML.load_file(options.fetch(:config_path, Brewmaster::BOOTSTRAP_CONFIG_PATH))
+    end
+
+    def bootstrap?
+      @bootstrap
     end
 
     def brews
@@ -9,7 +14,7 @@ module Brewmaster
     end
 
     def casks
-      @brews ||= @config_file['brews']
+      @casks ||= @config_file['casks']
     end
 
     def rubies

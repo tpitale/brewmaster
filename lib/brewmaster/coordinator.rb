@@ -7,7 +7,14 @@ module Brewmaster
     end
 
     def run
+      if configuration.boostrap?
+        Brewmaster.bootstrap!
+      else
+        Brewmaster.setup_load_paths
+      end
+
       run_brews
+      run_casks
       run_rubies
     end
 
@@ -17,13 +24,14 @@ module Brewmaster
       c.install_updates
     end
 
-    def run_rubies
-      c = RubyCollection.new(configuration.rubies)
+    def run_casks
+      c = CaskCollection.new(configuration.casks)
       c.install_missing
     end
 
-    def update_homebrew
-      `brew update`
+    def run_rubies
+      c = RubyCollection.new(configuration.rubies)
+      c.install_missing
     end
   end
 end
