@@ -1,3 +1,5 @@
+*While not exactly the same, you should use [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) instead.*
+
 # Brewmaster
 
 Given a configuration, it will install homebrew/brew-cask/ruby-build/chruby and use them to install brews, casks, and rubies.
